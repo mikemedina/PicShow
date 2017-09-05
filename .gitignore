@@ -1,6 +1,6 @@
 .gradle
 build
-DemoApp.iml
+PicShow.iml
 .idea/workspace.xml
 .idea/libraries/
 .idea/modules.xml
