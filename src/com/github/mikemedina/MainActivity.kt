@@ -11,6 +11,7 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         view_pager.adapter = ImagePagerAdapter(this)
+        view_pager.offscreenPageLimit = 30
     }
 
 }
