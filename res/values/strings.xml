@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PicShow</string>
+    <string name="lib_name">JRAW-Android</string>
+    <string name="prefs_file">net.dean.jraw.prefs_file</string>
+</resources>
