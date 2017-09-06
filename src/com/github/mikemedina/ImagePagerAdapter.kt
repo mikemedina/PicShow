@@ -20,7 +20,11 @@ class ImagePagerAdapter(private val activity: MainActivity) : PagerAdapter() {
         imageView.scaleType = ImageView.ScaleType.FIT_CENTER
         container.addView(imageView, 0)
 
-        imageView.setImageBitmap(images[index++])
+        try {
+            imageView.setImageBitmap(images[index++])
+        } catch (ex: IndexOutOfBoundsException) {
+            index = 0
+        }
 
         return imageView
     }
