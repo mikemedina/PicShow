@@ -8,8 +8,6 @@ import com.github.mikemedina.swipe_image_viewer.R
 
 class ImagePagerAdapter(private val activity: MainActivity) : PagerAdapter() {
 
-    // TODO: Dynamically fetch the next page of images
-    private val images = DownloadImageTask().execute().get()
     private var index = 0
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
@@ -20,16 +18,12 @@ class ImagePagerAdapter(private val activity: MainActivity) : PagerAdapter() {
         imageView.scaleType = ImageView.ScaleType.FIT_CENTER
         container.addView(imageView, 0)
 
-        try {
-            imageView.setImageBitmap(images[index++])
-        } catch (ex: IndexOutOfBoundsException) {
-            index = 0
-        }
+        imageView.setImageBitmap(DownloadImageTask(index++).execute().get())
 
         return imageView
     }
 
-    override fun getItemPosition(`object`: Any?): Int = images.indexOf(`object`)
+    override fun getItemPosition(`object`: Any?): Int = index
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
         container.removeView(`object` as ImageView)
