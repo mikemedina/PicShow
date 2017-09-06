@@ -18,7 +18,7 @@ class ImagePagerAdapter(private val activity: MainActivity) : PagerAdapter() {
         imageView.scaleType = ImageView.ScaleType.FIT_CENTER
         container.addView(imageView, 0)
 
-        imageView.setImageBitmap(DownloadImageTask(index++).execute().get())
+        DownloadImageTask(imageView, index++).execute()
 
         return imageView
     }
